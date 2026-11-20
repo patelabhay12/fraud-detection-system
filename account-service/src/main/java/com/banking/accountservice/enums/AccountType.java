@@ -6,5 +6,6 @@ package com.banking.accountservice.enums;
 public enum AccountType {
     SAVING,
     SALARIED,
-    CURRENT
+    CURRENT,
+    FIXED_DEPOSIT
 }
