@@ -82,9 +82,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void creditBalance(String accountNumber, BigDecimal amount) throws Exception {
+        log.info("Crediting {} to account {}",amount,accountNumber);
         Account existingAccount = accountRepository.findByAccountNumber(accountNumber).orElseThrow(() -> new Exception("Account does not exist"));
         existingAccount.setBalance(existingAccount.getBalance().add(amount));
         accountRepository.save(existingAccount);
+        log.info("Balance Credited. Now new balance is {}",existingAccount.getBalance());
     }
 
     @Override
